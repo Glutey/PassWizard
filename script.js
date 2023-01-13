@@ -88,6 +88,13 @@ var specialCharacters = [
     'Z'
   ];
   
+  let characterLength = 0;
+  let uppercase = 0;
+  let lowerCase = 0;
+  let numeric = 0;
+  let specialCharacter = 0;
+
+  
   // Function to prompt user for password options
   function getPasswordOptions() {
     alert
