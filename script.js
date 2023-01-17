@@ -94,18 +94,34 @@ function getPasswordOptions() {
     while (length < 10 || length > 64) {
         length = prompt("Enter the desired length of your password (between 10 and 64 characters):");
     }
+    var hasLower = confirm("Include lowercase characters in your password?");
+    var hasUpper = confirm("Include uppercase characters in your password?");
+    var hasNumeric = confirm("Include numeric characters in your password?");
+    var hasSpecial = confirm("Include special characters in your password?");
+    while (!hasLower && !hasUpper && !hasNumeric && !hasSpecial) {
+        alert("You must select at least one character type!");
+        hasLower = confirm("Include lowercase characters in your password?");
+        hasUpper = confirm("Include uppercase characters in your password?");
+        hasNumeric = confirm("Include numeric characters in your password?");
+        hasSpecial = confirm("Include special characters in your password?");
+    }
+    return {
+        length: length,
+        hasLower: hasLower,
+        hasUpper: hasUpper,
+        hasNumeric: hasNumeric,
+        hasSpecial: hasSpecial
+    }
+}
+// Function for getting a random element from an array
+function getRandom(arr) {
+
 }
 
-    // Function for getting a random element from an array
-    function getRandom(arr) {
+// Function to generate password with user input
+function generatePassword() {
 
-    }
-
-    // Function to generate password with user input
-    function generatePassword() {
-
-    }
-
+}
 
 
 // Get references to the #generate element
