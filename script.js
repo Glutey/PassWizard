@@ -120,12 +120,34 @@ function getRandom(arr) {
     return arr[randomIndex];
 }
 
-
-
 // Function to generate password with user input
 function generatePassword() {
+    var options = getPasswordOptions();
+    var result = [];
+    var possibleCharacters = [];
+    var guaranteedCharacters = [];
+    if (options.hasLower) {
+        possibleCharacters = possibleCharacters.concat(lowerCasedCharacters);
+        guaranteedCharacters.push(getRandom(lowerCasedCharacters));
+    }
+    if (options.hasUpper) {
+        possibleCharacters = possibleCharacters.concat(upperCasedCharacters);
+        guaranteedCharacters.push(getRandom(upperCasedCharacters));
+    }
+    if (options.hasNumeric) {
+        possibleCharacters = possibleCharacters.concat(numericCharacters);
+        guaranteedCharacters.push(getRandom(numericCharacters));
+    }
+    if (options.hasSpecial) {
+        possibleCharacters = possibleCharacters.concat(specialCharacters);
+        guaranteedCharacters.push(getRandom(specialCharacters));
+    }
 
-}
+    for (var i = 0; i < options.length; i++) {
+        var possibleCharacter = getRandom(possibleCharacters);
+
+        result.push(possibleCharacter);
+    }
 
 
 // Get references to the #generate element
