@@ -148,7 +148,14 @@ function generatePassword() {
 
         result.push(possibleCharacter);
     }
+    
+// Mix in at least one of each guaranteed character in the result
+for (var i = 0; i < guaranteedCharacters.length; i++) {
+    result[i] = guaranteedCharacters[i];
+}
 
+return result.join("");
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
